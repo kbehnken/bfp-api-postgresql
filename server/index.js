@@ -10,7 +10,7 @@ const servicesCtrl = require('./controllers/servicesController');
 const equipmentCtrl = require('./controllers/equipmentController');
 const photosCtrl = require('./controllers/photosController');
 const addressesCtrl = require('./controllers/addressesController');
-const callsCtrl = require('./controllers/callsController');
+// const callsCtrl = require('./controllers/callsController');
 const invoicesCtrl = require('./controllers/invoicesController');
 const auth = require('./middleware/authMiddleware');
 
@@ -46,10 +46,10 @@ app.post('/api/v1/equipment', auth.usersOnly, equipmentCtrl.addEquipment);
 app.put('/api/v1/equipment/:id', auth.usersOnly, equipmentCtrl.updateEquipment);
 app.delete('/api/v1/equipment/:id', auth.usersOnly, equipmentCtrl.deleteEquipment);
 
-app.get('/api/photos', auth.usersOnly, photosCtrl.getPhotos);
-app.post('/api/photos', auth.usersOnly, photosCtrl.addPhoto);
-// app.put('/api/photos/:id', auth.usersOnly, photosCtrl.updatePhoto);
-app.delete('/api/photos/:id', auth.usersOnly, photosCtrl.deletePhoto);
+app.get('/api/v1/photos', auth.usersOnly, photosCtrl.getPhotos);
+app.post('/api/v1/photos', auth.usersOnly, photosCtrl.addPhoto);
+// app.put('/api/v1/photos/:id', auth.usersOnly, photosCtrl.updatePhoto);
+app.delete('/api/v1/photos/:id', auth.usersOnly, photosCtrl.deletePhoto);
 
 app.get('/api/v1/addresses', auth.usersOnly, addressesCtrl.getAddresses);
 app.get('/api/v1/addresses/byCustomerId/:id', auth.usersOnly, addressesCtrl.getAddressesByCustomerId);
